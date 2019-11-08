@@ -43,7 +43,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
   click = async () => {
     localStorage.setItem("UWU", "WHAT is UWU anyway");
-    Office.context.ui.displayDialogAsync("https://localhost:3000/",
+    Office.context.ui.displayDialogAsync(window.location.origin + "/dialog.html",
     {
         height: 50,
         width: 50,

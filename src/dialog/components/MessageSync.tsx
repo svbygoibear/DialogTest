@@ -1,16 +1,16 @@
 import * as React from "react";
 /* global Button, Header, HeroList, HeroListItem, Progress */
 
-export interface AppProps {
+export interface MessageSyncProps {
   title: string;
   isOfficeInitialized: boolean;
 }
 
-export interface AppState {
+export interface MessageSyncState {
   listItems: any[];
 }
 
-export default class App extends React.Component<AppProps, AppState> {
+export default class MessageSync extends React.Component<MessageSyncProps, MessageSyncState> {
   constructor(props, context) {
     super(props, context);
     this.state = {

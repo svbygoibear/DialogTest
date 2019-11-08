@@ -20,6 +20,10 @@ module.exports = async (env, options)  => {
         'react-hot-loader/patch',
         './src/taskpane/index.tsx',
     ],
+    dialog: [
+      'react-hot-loader/patch',
+      './src/dialog/index.tsx',
+    ],
     commands: './src/commands/commands.ts'
     },
     resolve: {
@@ -56,6 +60,10 @@ module.exports = async (env, options)  => {
         {
           to: "taskpane.css",
           from: "./src/taskpane/taskpane.css"
+        },
+        {
+          to: "dialog.css",
+          from: "./src/dialog/dialog.css"
         }
       ]),
       new ExtractTextPlugin('[name].[hash].css'),
@@ -63,6 +71,11 @@ module.exports = async (env, options)  => {
         filename: "taskpane.html",
           template: './src/taskpane/taskpane.html',
           chunks: ['taskpane', 'vendor', 'polyfills']
+      },
+      {
+        filename: "dialog.html",
+          template: './src/dialog/dialog.html',
+          chunks: ['dialog', 'vendor', 'polyfills']
       }),
       new HtmlWebpackPlugin({
           filename: "commands.html",
