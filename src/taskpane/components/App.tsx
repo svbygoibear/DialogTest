@@ -54,6 +54,8 @@ export default class App extends React.Component<AppProps, AppState> {
       route: `${window.location.origin + "/dialog.html"}`
     };
 
+    localStorage.setItem("This is a test key", "This is a test value");
+
     this.dialog.showDialog(
       dialogOptions,
       (dialog: any, message: string) => {
