@@ -1,5 +1,6 @@
 import * as React from "react";
-/* global Button, Header, HeroList, HeroListItem, Progress */
+import { Button, ButtonType } from "office-ui-fabric-react";
+import { DialogPopUp } from "../../dialogpopup/dialogpopup";
 
 export interface MessageSyncProps {
   title: string;
@@ -11,8 +12,12 @@ export interface MessageSyncState {
 }
 
 export default class MessageSync extends React.Component<MessageSyncProps, MessageSyncState> {
+  private dialog: DialogPopUp;
+
   constructor(props, context) {
     super(props, context);
+    this.dialog = new DialogPopUp();
+
     this.state = {
       listItems: []
     };
@@ -38,22 +43,20 @@ export default class MessageSync extends React.Component<MessageSyncProps, Messa
   }
 
   click = async () => {
-    localStorage.setItem("UWU", "WHAT is UWU anyway");
-    Office.context.ui.displayDialogAsync("https://localhost:3000/",
-    {
-        height: 50,
-        width: 50,
-        displayInIframe: false
-    }, (asyncResult: Office.AsyncResult<any>) => { 
-        const dialog = asyncResult.value;
-        console.log(dialog);
-    });
+    this.dialog.messageParent("Signin#");
   };
 
   render() {
     return (
       <div className="ms-welcome">
-        TEST
+        Run this button to message the parent
+          <Button
+            className="ms-welcome__action"
+            buttonType={ButtonType.hero}
+            iconProps={{ iconName: "ChevronRight" }}
+            onClick={this.click}>
+            Message Parent
+          </Button>
       </div>
     );
   }

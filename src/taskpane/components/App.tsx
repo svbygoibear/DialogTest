@@ -3,6 +3,7 @@ import { Button, ButtonType } from "office-ui-fabric-react";
 import Header from "./Header";
 import HeroList, { HeroListItem } from "./HeroList";
 import Progress from "./Progress";
+import { DialogPopUp } from "../../dialogpopup/dialogpopup";
 /* global Button, Header, HeroList, HeroListItem, Progress */
 
 export interface AppProps {
@@ -15,8 +16,12 @@ export interface AppState {
 }
 
 export default class App extends React.Component<AppProps, AppState> {
+  private dialog: DialogPopUp;
+
   constructor(props, context) {
     super(props, context);
+    this.dialog = new DialogPopUp();
+
     this.state = {
       listItems: []
     };
@@ -42,16 +47,21 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   click = async () => {
-    localStorage.setItem("UWU", "WHAT is UWU anyway");
-    Office.context.ui.displayDialogAsync(window.location.origin + "/dialog.html",
-    {
-        height: 50,
-        width: 50,
-        displayInIframe: false
-    }, (asyncResult: Office.AsyncResult<any>) => { 
-        const dialog = asyncResult.value;
-        console.log(dialog);
-    });
+    const dialogOptions = {
+      inFrame: false,
+      heightPercent: 85,
+      widthPercent: 93,
+      route: `${window.location.origin + "/dialog.html"}`
+    };
+
+    this.dialog.showDialog(
+      dialogOptions,
+      (dialog: any, message: string) => {
+          if (message.indexOf("Close#") === 0) {
+              dialog.close();
+          }
+      }
+    );
   };
 
   render() {
