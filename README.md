@@ -18,8 +18,8 @@ This repository supports debugging using any of the following techniques:
 ## Issues
 
 With this repository, we can showcase that using any office product online and loading in our application in either Safari on Mac OR in a private Edge window:
-- The [localStorage] is not shared between the taskpane and the [dialog].
-- The [dialog] can't send a message back to the parent; we make use of the [Office.context.ui.messageParent] method, send a [#Close] message to the parent which is not recieved by the parent. 
+- The **localStorage** is not shared between the taskpane and the **dialog**.
+- The **dialog** can't send a message back to the parent; we make use of the **Office.context.ui.messageParent** method, send a **#Close** message to the parent which is not recieved by the parent. 
 Both of these issues work on Chrome, Firefox, IE10 and Edge (in regular mode).
 
 ## Additional resources
