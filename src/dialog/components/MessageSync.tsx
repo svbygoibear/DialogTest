@@ -43,13 +43,15 @@ export default class MessageSync extends React.Component<MessageSyncProps, Messa
   }
 
   click = async () => {
-    this.dialog.messageParent("Signin#");
+    this.dialog.messageParent("Close#");
   };
 
   render() {
     return (
       <div className="ms-welcome">
-        Run this button to message the parent
+          <p className="ms-font-l">
+            Run this button to message the parent. Click <b>Message Parent</b>.
+          </p>   
           <Button
             className="ms-welcome__action"
             buttonType={ButtonType.hero}

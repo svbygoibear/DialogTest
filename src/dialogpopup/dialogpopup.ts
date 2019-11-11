@@ -45,11 +45,7 @@ export class DialogPopUp {
         messageHandler: (dialog: any, message: string) => void,
         eventHandler?: (dialog: any, message: string) => void
     ): void {
-        console.log("show dialog");
-
         const fullUrl = options.route;
-
-        console.log(fullUrl);
         Office.context.ui.displayDialogAsync(
             fullUrl,
             {
