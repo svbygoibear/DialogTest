@@ -32,18 +32,14 @@ export default class App extends React.Component<AppProps, AppState> {
       listItems: [
         {
           icon: "Ribbon",
-          primaryText: "Achieve more with Office integration"
+          primaryText: "Test why the heck we can't share local storage!"
         },
-        {
-          icon: "Unlock",
-          primaryText: "Unlock features and functionality"
-        },
-        {
-          icon: "Design",
-          primaryText: "Create and visualize like a pro"
-        }
       ]
     });
+    // workaround to see if we can access local storage
+    window.addEventListener("storage", e => {
+      console.log("key:"+e.key+", value:"+e.newValue);
+    }, false);
   }
 
   click = async () => {
@@ -54,6 +50,7 @@ export default class App extends React.Component<AppProps, AppState> {
       route: `${window.location.origin + "/dialog.html"}`
     };
 
+    // sets an item in local storage
     localStorage.setItem("This is a test key", "This is a test value");
 
     this.dialog.showDialog(

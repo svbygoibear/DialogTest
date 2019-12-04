@@ -39,10 +39,14 @@ export default class MessageSync extends React.Component<MessageSyncProps, Messa
           primaryText: "Create and visualize like a pro"
         }
       ]
-    });
+    });  
   }
 
   click = async () => {
+    console.log("Message Parent has been clicked")
+    // sets an item in local storage
+    localStorage.setItem("CLOSE ME", "Will the parent get this close value?");
+
     this.dialog.messageParent("Close#");
   };
 
