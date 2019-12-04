@@ -21,6 +21,10 @@ With this repository, we can showcase that using any office product online and l
 - The **localStorage** is not shared between the taskpane and the **dialog**.
 - The **dialog** can't send a message back to the parent; we make use of the **Office.context.ui.messageParent** method, send a **#Close** message to the parent which is not recieved by the parent. 
 Both of these issues work on Chrome, Firefox, IE10 and Edge (in regular mode).
+- The **localStorage** event listener is not triggered from an external window for Edge in Private:
+[Local Storage Event Listener](https://stackoverflow.com/questions/5370784/localstorage-eventlistener-is-not-called)
+[Responding to local storage changes](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#Responding_to_storage_changes_with_the_StorageEvent)
+[Storage Event](https://developer.mozilla.org/en-US/docs/Web/API/StorageEvent)
 
 ## Additional resources
 
