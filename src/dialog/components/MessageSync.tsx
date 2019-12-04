@@ -7,46 +7,26 @@ export interface MessageSyncProps {
   isOfficeInitialized: boolean;
 }
 
-export interface MessageSyncState {
-  listItems: any[];
-}
-
-export default class MessageSync extends React.Component<MessageSyncProps, MessageSyncState> {
+export default class MessageSync extends React.Component<MessageSyncProps, null> {
   private dialog: DialogPopUp;
 
   constructor(props, context) {
     super(props, context);
     this.dialog = new DialogPopUp();
-
-    this.state = {
-      listItems: []
-    };
   }
 
-  componentDidMount() {
-    this.setState({
-      listItems: [
-        {
-          icon: "Ribbon",
-          primaryText: "Achieve more with Office integration"
-        },
-        {
-          icon: "Unlock",
-          primaryText: "Unlock features and functionality"
-        },
-        {
-          icon: "Design",
-          primaryText: "Create and visualize like a pro"
-        }
-      ]
-    });  
-  }
+  componentDidMount() { }
+
+  closeClick = async () => {
+    console.log("Clear the storage value")
+    // sets an item in local storage
+    localStorage.setItem("CLOSE ME", "");
+  };
 
   click = async () => {
     console.log("Message Parent has been clicked")
     // sets an item in local storage
     localStorage.setItem("CLOSE ME", "Will the parent get this close value?");
-
     this.dialog.messageParent("Close#");
   };
 
@@ -57,11 +37,18 @@ export default class MessageSync extends React.Component<MessageSyncProps, Messa
             Run this button to message the parent. Click <b>Message Parent</b>.
           </p>   
           <Button
-            className="ms-welcome__action"
+            className="ms-message-parent__action"
             buttonType={ButtonType.hero}
             iconProps={{ iconName: "ChevronRight" }}
             onClick={this.click}>
             Message Parent
+          </Button>
+          <Button
+            className="ms-clear-storage__action"
+            buttonType={ButtonType.hero}
+            iconProps={{ iconName: "ChevronRight" }}
+            onClick={this.closeClick}>
+            Clear Storage
           </Button>
       </div>
     );
