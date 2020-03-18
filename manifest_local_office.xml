@@ -5,7 +5,7 @@
   <ProviderName>YogiBear</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="DialogTest LOCAL WORD"/>
-  <Description DefaultValue="A test bench for office-js and word alongside react and typescript."/>
+  <Description DefaultValue="Testing office-js dialog in word."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png"/>
   <SupportUrl DefaultValue="https://www.foogle.com"/>
